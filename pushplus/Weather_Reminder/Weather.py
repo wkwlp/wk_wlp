@@ -44,7 +44,7 @@ class WeatherInfoFetcher:
         # 返回格式化后的明天的日期
         return formatted_tomorrow
 
-    def construct_weather_url(self, city="450103", extensions="all", output="json"):
+    def construct_weather_url(self, city="440300", extensions="all", output="json"):
         """
         构造高德地图天气API的请求URL。
 
@@ -100,7 +100,7 @@ class WeatherInfoFetcher:
             tuple: 包含预报信息字符串和天气状况字符串的元组。
         """
         # 初始化一个空字符串用于存储最终的预报信息
-        result = "南宁市青秀区-预报天气信息:\n"
+        result = "深圳市-预报天气信息:\n"
 
         # 初始化天气状况为默认值
         weather_condition = '未知天气状况'
@@ -116,7 +116,7 @@ class WeatherInfoFetcher:
             # 如果找到了匹配的日期（即明天的日期）
             if forecast_date == tomorrow_date:
                 # 将日期信息添加到结果字符串中
-                result += f"日期: {forecast_date}(周{forecast['week']})\n"
+                result += f"日期: {forecast_date}({'周日' if forecast['week'] == 7 else f'周{forecast["week"]}'})\n"
                 # 将白天的天气状况添加到结果字符串中
                 result += f"白天天气状况: {forecast['dayweather']}\n"
                 # 将白天和夜间温度范围添加到结果字符串中
@@ -149,7 +149,7 @@ class WeatherInfoFetcher:
         # 如果实时天气信息存在且非空
         if realtime_weather:
             # 添加城市名和实时天气信息标题
-            result += f"南宁市{realtime_weather['city']}-实时天气信息:\n"
+            result += f"{realtime_weather['city']}-实时天气信息:\n"
 
             # 添加天气状况信息
             result += f"天气状况: {realtime_weather['weather']}\n"
