@@ -57,11 +57,3 @@ jobs:
         run: |
           python pushplus/Event_Reminder/Event.py
 
-      - name: Run Weather Reminder Script
-        if: github.event_name == 'schedule' && github.event.schedule == '00 13 * * *' || github.event_name == 'workflow_dispatch'
-        env:
-          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-          AMAP_KEY: ${{ secrets.AMAP_KEY }}
-          PUSHPLUS_GROUP_TOPIC: ${{ secrets.PUSHPLUS_GROUP_TOPIC }}
-        run: |
-          python pushplus/Weather_Reminder/Weather.py
