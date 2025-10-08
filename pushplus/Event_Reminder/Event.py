@@ -50,11 +50,11 @@ class DateHandler:
         event_days = [
             ("妈妈农历生日", "11月10日"),
             ("爸爸农历生日", "1月27日"),
-            ("老婆阳历生日", "9月29日"),
+            ("老婆阳历生日", "9月19日"),
             ('和老婆在一起的纪念日', '11月14日'),
             ('外婆农历生日', '7月24日'),
             ('我的阳历生日', '10月15日'),
-            ('我的农历生日', '8月29日')
+            ('我的农历生日'， '8月29日')
         ]
         self.logger.info("获取到所有需要检查的事件信息: %s", event_days)
         return event_days
@@ -201,7 +201,7 @@ def main():
             name, date, solar_date, days_until = event_info
 
             # 如果事件在未来七天内或标记为重要，则添加到列表
-            if 0 <= days_until <= 7 or '重要' in name:
+            if 0 <= days_until <= 3 or '重要' in name:
                 event_days_soon.append(event_info)
                 logger.info("重要事件提醒：%s 在未来七天内，剩余天数：%d", name, days_until)
 
