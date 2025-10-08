@@ -47,14 +47,6 @@ jobs:
         run: echo "PYTHONPATH=${GITHUB_WORKSPACE}" >> $GITHUB_ENV
 
       # 第五步：根据触发时间选择性地运行相应的脚本
-      - name: Run Saylove Reminder Script
-        if: github.event_name == 'schedule' && github.event.schedule == '40 0 * * *' || github.event_name == 'workflow_dispatch'
-        env:
-          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-          TIAN_KEY: ${{ secrets.TIAN_KEY }}
-          PUSHPLUS_GROUP_TOPIC: ${{ secrets.PUSHPLUS_GROUP_TOPIC }}
-        run: |
-          python pushplus/Love_Reminder/Saylove.py
 
       - name: Run Event Reminder Script
         if: github.event_name == 'schedule' && github.event.schedule == '00 03 * * *' || github.event_name == 'workflow_dispatch'
