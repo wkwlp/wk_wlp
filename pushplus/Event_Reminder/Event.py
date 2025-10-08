@@ -53,8 +53,7 @@ class DateHandler:
             ("老婆阳历生日", "9月19日"),
             ('和老婆在一起的纪念日', '11月14日'),
             ('外婆农历生日', '7月24日'),
-            ('我的阳历生日', '10月15日'),
-            ('我的农历生日'， '8月29日')
+            ('我的阳历生日', '10月15日')
         ]
         self.logger.info("获取到所有需要检查的事件信息: %s", event_days)
         return event_days
@@ -69,7 +68,7 @@ class DateHandler:
         """
         # 分割日期字符串以获取月份和日期
         month, day_with_ri = date.split('月')
-        day = day_with_ri.replace('日', '')
+        day = day_with_ri.替换('日', '')
 
         # 如果是农历日期，则将其转换为阳历日期
         if '农历' in name:
