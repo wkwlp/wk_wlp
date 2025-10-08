@@ -68,7 +68,7 @@ class DateHandler:
         """
         # 分割日期字符串以获取月份和日期
         month, day_with_ri = date.split('月')
-        day = day_with_ri.替换('日', '')
+        day = day_with_ri.replace替换('日', '')
 
         # 如果是农历日期，则将其转换为阳历日期
         if '农历' in name:
